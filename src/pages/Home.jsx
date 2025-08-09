@@ -1,6 +1,6 @@
-import Card from "../component/card";
-import Search from "../component/search";
-import  Container from "../component/container";
+import Card from "../component/Card";
+import Search from "../component/Search";
+import Container from "../component/GridContainer";
 
 export default function Home() {
   return (
