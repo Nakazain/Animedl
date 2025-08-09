@@ -1,5 +1,6 @@
 import Card from "./component/card";
 import Search from "./component/search";
+import  Container from "./component/container";
 
 export default function App() {
   return (
@@ -10,12 +11,18 @@ export default function App() {
           <div className="flex justify-center mb-5">
             <Search />
           </div>
-          <div className="grid grid-cols-4 gap-4 max-w-6xl">
+          <Container title="Anime Terbaru">
             <Card />
             <Card />
             <Card />
             <Card />
-          </div>
+          </Container>
+          <Container title="Anime Tamat">
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+          </Container>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
-const Search = () => {
+export default function Search() {
   return (
     <div className="group relative w-fit">
-      <div className="absolute -z-1 -inset-1 rounded-xl bg-gradient-to-r from-teal-500 via-gold to-green-500 opacity-20 blur-xl transition-all duration-500 group-hover:opacity-50 group-hover:blur-2xl" />
+      <div className="absolute -z-10 -inset-1 rounded-xl bg-gradient-to-r from-teal-500 via-gold to-green-500 opacity-10 blur-sm transition-all duration-500 group-hover:opacity-30 group-hover:blur-2xl" />
       <form className="flex bg-slate-900 border border-slate-700 text-white rounded-md shadow text-sm">
         <div aria-disabled="true" className="w-10 grid place-content-center">
           <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
@@ -22,5 +22,3 @@ const Search = () => {
     </div>
   );
 }
-
-export default Search;
