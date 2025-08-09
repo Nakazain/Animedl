@@ -29,6 +29,14 @@ export default function Contents() {
               <p>Pada dasarnya, manusia tidak bisa memakai sihir tanpa merafalkan mantra. Namun, ada seorang gadis yang bisa melakukan hal tersebut. Ia adalah Monica Everett, salah satu penyihir yang dijuluki Silent Witch dan juga bagian dari Tujuh Sage di Kerajaan Lidl.</p><p>Monica mampu menggunakan sihir tanpa perlu merafalkan mantranya. Hal ini terjadi karena ia sama sekali tidak bisa berkomunikasi dan membuat dirinya harus beradaptasi dan menciptakan sihirnya sendiri.</p><p>Suatu hari, Monic didatangi oleh Louis yang juga bagian dari Tujuh Sage. Dalam pertemuan tersebut, Monica mendapatkan tugas untuk menjaga Pangeran Kedua secara diam-diam dan menyusup ke dalam akademi. Mampukah ia melakukan tugas tersebut?</p>
             </div>
             </Container>
+            <Container title={"Episode"} noMargin>
+              <ul>
+                <li>Episode 1</li>
+                <li>Episode 2</li>
+                <li>Episode 3</li>
+                <li>Episode 4</li>
+              </ul>
+            </Container>
           </Container>
         </div>
       </div>
