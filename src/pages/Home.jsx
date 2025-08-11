@@ -41,6 +41,7 @@ export default function Home() {
                     title={anime.title}
                     eps={anime.eps}
                     date={anime.date}
+                    page={`/${anime.link}`}
                     img={anime.img}
                   />
                 ))}
@@ -58,6 +59,7 @@ export default function Home() {
                     title={anime.title}
                     eps={anime.eps}
                     date={anime.date}
+                    page={`/${anime.link}`}
                     img={anime.img}
                   />
                 ))}

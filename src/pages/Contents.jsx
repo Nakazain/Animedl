@@ -1,43 +1,63 @@
 import Container from "../component/Container";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { load } from "cheerio";
 
 export default function Contents() {
+
+  const { slug } = useParams();
+  const [animeData, setAnimeData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(`/api/${slug}`)
+      .then(res => res.json())
+      .then(data => setAnimeData(data))
+      .catch(err => console.error(err))
+      .finally(() => setLoading(false));
+  }, [slug]);
+
   return (
     <div className="min-h-screen">
       <div className="flex justify-center">
         <div className="max-w-4xl">
-          <Container title="Judul Anime">
-            <div className="flex justify-center gap-4">
-              <img className="rounded-md h-64" src="/img.jpg" alt="Anime Thumbnail" />
-              <div>
-                <p><span><b>Judul</b>: Silent Witch</span></p>
-                <p><span><b>Japanese</b>: サイレント・ウィッチ 沈黙の魔女の隠しごと</span></p>
-                <p><span><b>Skor</b>: 7.43</span></p>
-                <p><span><b>Produser</b>: Aniplex, Cygames</span></p>
-                <p><span><b>Tipe</b>: TV</span></p>
-                <p><span><b>Status</b>: Ongoing</span></p>
-                <p><span><b>Total Episode</b>: 13</span></p>
-                <p><span><b>Durasi</b>: 24 min. per ep.</span></p>
-                <p><span><b>Tanggal Rilis</b>: Jul 05, 2025</span></p>
-                <p><span><b>Studio</b>: Studio Gokumi</span></p>
-                <p><span><b>Genre</b>: Fantasy, School</span></p>
+          {loading ? (
+            <Container title="Loading..."></Container>
+          ) : (
+            <Container title={animeData.title}>
+              <div className="flex justify-center gap-4">
+                <img className="rounded-md h-64" src={animeData.img} alt="Anime Thumbnail" />
+                <div>
+                  <p><span><b>Judul</b>: {animeData.title}</span></p>
+                  <p><span><b>Japanese</b>: {animeData.jp_title}</span></p>
+                  <p><span><b>Skor</b>: {animeData.ratting}</span></p>
+                  <p><span><b>Produser</b>: {animeData.produser}</span></p>
+                  <p><span><b>Tipe</b>: {animeData.type}</span></p>
+                  <p><span><b>Status</b>: {animeData.status}</span></p>
+                  <p><span><b>Total Episode</b>: {animeData.episode_count}</span></p>
+                  <p><span><b>Durasi</b>: {animeData.duration}</span></p>
+                  <p><span><b>Tanggal Rilis</b>: {animeData.release_date}</span></p>
+                  <p><span><b>Studio</b>: {animeData.studio}</span></p>
+                  <p><span><b>Genre</b>: {animeData.genres}</span></p>
+                </div>
+                <div>
+                </div>
               </div>
-              <div>
-              </div>
-            </div>
-            <Container title={"Sinopsis"} noMargin>             
-            <div>
-              <p>Pada dasarnya, manusia tidak bisa memakai sihir tanpa merafalkan mantra. Namun, ada seorang gadis yang bisa melakukan hal tersebut. Ia adalah Monica Everett, salah satu penyihir yang dijuluki Silent Witch dan juga bagian dari Tujuh Sage di Kerajaan Lidl.</p><p>Monica mampu menggunakan sihir tanpa perlu merafalkan mantranya. Hal ini terjadi karena ia sama sekali tidak bisa berkomunikasi dan membuat dirinya harus beradaptasi dan menciptakan sihirnya sendiri.</p><p>Suatu hari, Monic didatangi oleh Louis yang juga bagian dari Tujuh Sage. Dalam pertemuan tersebut, Monica mendapatkan tugas untuk menjaga Pangeran Kedua secara diam-diam dan menyusup ke dalam akademi. Mampukah ia melakukan tugas tersebut?</p>
-            </div>
+              <Container title={"Sinopsis"} noMargin>
+                <div>
+                  <p>{animeData.synopsis}</p>
+                </div>
+              </Container>
+              <Container title={"Episode"} noMargin>
+                <ul>
+                  <li>Episode 1</li>
+                  <li>Episode 2</li>
+                  <li>Episode 3</li>
+                  <li>Episode 4</li>
+                </ul>
+              </Container>
             </Container>
-            <Container title={"Episode"} noMargin>
-              <ul>
-                <li>Episode 1</li>
-                <li>Episode 2</li>
-                <li>Episode 3</li>
-                <li>Episode 4</li>
-              </ul>
-            </Container>
-          </Container>
+          )}
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/isi" element={<Contents />} />
+        <Route path="/:slug" element={<Contents />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

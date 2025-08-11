@@ -12,8 +12,9 @@ export default async function handler(req, res) {
       const title = $(el).find(".jdlflm").text().trim();
       const eps = $(el).find(".epz").text().trim();
       const date = $(el).find(".newnime").text().trim();
+      const link = $(el).find("a").attr("href").split("/").slice(-2, -1).join("/");
       const img = $(el).attr("src") || $(el).find("img").attr("src");
-      animeList.push({ title, eps, date, img });
+      animeList.push({ title, eps, date, link, img });
     });
 
     res.status(200).json(animeList);
