@@ -10,7 +10,7 @@ export default function Home() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await fetch("/api/home");
+        const res = await fetch("/api/");
         const data = await res.json();
         setAnimeList(data);
       } catch (err) {
