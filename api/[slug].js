@@ -16,7 +16,7 @@ export default async function handler(req, res) {
         "Cache-Control": "no-cache",
         "Pragma": "no-cache",
         "Upgrade-Insecure-Requests": "1",
-        "Referer": "https://google.com/",
+        "Referer": "https://otakudesu.best/",
       },
     });
     const $ = cheerio.load(data);
