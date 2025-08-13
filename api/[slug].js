@@ -7,6 +7,11 @@ export default async function handler(req, res) {
   try {
     const url = `https://otakudesu.best/anime/${slug}`;
     const { data } = await axios.get(url, {
+      proxy: {
+        host: "45.134.14.181",
+        port: 8080
+      },
+
       headers: {
         "User-Agent":
           "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115 Safari/537.36",
